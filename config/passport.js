@@ -23,7 +23,7 @@ passport.use(new LocalStrategy({
         return done(null, false, {message: 'Incorrect Login.'});
       }
 
-      bcrypt.compare(password, user.password, function (err, user) {
+      bcrypt.compare(password, user.password, function (err, res) {
         if (!res)
           return done(null, false, { message: 'Incorrect Login' });
         var returnUser = {

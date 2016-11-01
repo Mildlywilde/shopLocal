@@ -7,7 +7,7 @@ module.exports = {
 		rest: false
 	},
 
-	login: function(request, response) {
+	login: function(req, res) {
 		passport.authenticate('local', function(err, user, info) {
 			if ((err) || (!user)) {
 				return res.send({
