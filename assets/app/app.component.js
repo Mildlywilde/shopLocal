@@ -8,15 +8,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
+const core_1 = require("@angular/core");
+class Shop {
+}
+exports.Shop = Shop;
+const SHOPS = [
+    { id: 2, name: 'Snakes & Lattes' },
+    { id: 3, name: '401 Games' }
+];
 let AppComponent = class AppComponent {
+    constructor() {
+        this.title = 'Shop Local';
+        this.shops = SHOPS;
+        this.shop = {
+            id: 1,
+            name: 'Meeple Mart'
+        };
+    }
 };
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: '<h1>My First Angular 2 App</h1>'
-    }), 
-    __metadata('design:paramtypes', [])
+        template: `
+              <h1>{{title}}</h1>
+              <h2>{{shop.name}} details!</h2>
+              <div><label>id: </label>{{shop.id}}</div>
+              <div>
+                <label>name: </label>
+                <input [(ngModel)]="shop.name" placeholder="name">
+              </div>
+              `
+    }),
+    __metadata("design:paramtypes", [])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map
