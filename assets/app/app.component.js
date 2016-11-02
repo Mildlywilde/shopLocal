@@ -9,9 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require("@angular/core");
-class Shop {
-}
-exports.Shop = Shop;
 const SHOPS = [
     { id: 1, name: 'Meeple Mart' },
     { id: 2, name: 'Snakes & Lattes' },
@@ -39,14 +36,7 @@ AppComponent = __decorate([
                   <span class="badge">{{shop.id}}</span> {{shop.name}}
                 </li>
               </ul>
-              <div *ngIf="selectedShop">
-                <h2>{{selectedShop.name}} details!</h2>
-                <div><label>id: </label>{{selectedShop.id}}</div>
-                <div>
-                  <label>name: </label>
-                  <input [(ngModel)]="selectedShop.name" placeholder="name"/>
-                </div>
-              </div>
+              <my-shop-detail [shop] = "selectedShop"></my-shop-detail>
               `,
         styles: [`
       .selected {

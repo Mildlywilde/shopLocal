@@ -1,10 +1,5 @@
 import {Component} from '@angular/core';
-
-export class Shop {
-  id: number;
-  name: string;
-}
-
+import {Shop}      from './shop';
 const SHOPS: Shop[] = [
   {id: 1, name: 'Meeple Mart'},
   {id: 2, name: 'Snakes & Lattes'},
@@ -24,14 +19,7 @@ const SHOPS: Shop[] = [
                   <span class="badge">{{shop.id}}</span> {{shop.name}}
                 </li>
               </ul>
-              <div *ngIf="selectedShop">
-                <h2>{{selectedShop.name}} details!</h2>
-                <div><label>id: </label>{{selectedShop.id}}</div>
-                <div>
-                  <label>name: </label>
-                  <input [(ngModel)]="selectedShop.name" placeholder="name"/>
-                </div>
-              </div>
+              <my-shop-detail [shop] = "selectedShop"></my-shop-detail>
               `
     ,
     styles: [`
