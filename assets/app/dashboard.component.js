@@ -9,13 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require("@angular/core");
+const router_1 = require("@angular/router");
 const shop_service_1 = require("./shop.service");
 let DashboardComponent = class DashboardComponent {
-    constructor(shopService) {
-        shopService.getShops()
+    constructor(shopService, router) {
+        this.shopService = shopService;
+        this.router = router;
+    }
+    ngOnInit() {
+        this.shopService.getShops()
             .subscribe(shops => this.shops = shops, error => console.error('Error:' + err), () => console.log('Completed!'));
     }
-    gotoDetail(shop) { }
+    gotoDetail(shop) {
+        let link = ['/detail', shop.id];
+        this.router.navigate(link);
+    }
 };
 DashboardComponent = __decorate([
     core_1.Component({
@@ -23,7 +31,8 @@ DashboardComponent = __decorate([
         selector: 'my-dashboard',
         templateUrl: 'dashboard.component.html',
     }),
-    __metadata("design:paramtypes", [shop_service_1.ShopService])
+    __metadata("design:paramtypes", [shop_service_1.ShopService,
+        router_1.Router])
 ], DashboardComponent);
 exports.DashboardComponent = DashboardComponent;
 //# sourceMappingURL=dashboard.component.js.map
