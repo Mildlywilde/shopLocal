@@ -9,16 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require("@angular/core");
+const shop_service_1 = require("./shop.service");
 let DashboardComponent = class DashboardComponent {
+    constructor(shopService) {
+        shopService.getShops()
+            .subscribe(shops => this.shops = shops, error => console.error('Error:' + err), () => console.log('Completed!'));
+    }
+    gotoDetail(shop) { }
 };
 DashboardComponent = __decorate([
     core_1.Component({
+        moduleId: module.id,
         selector: 'my-dashboard',
-        template: `
-            <h3>Dash</h3>
-            `
+        templateUrl: 'dashboard.component.html',
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [shop_service_1.ShopService])
 ], DashboardComponent);
 exports.DashboardComponent = DashboardComponent;
 //# sourceMappingURL=dashboard.component.js.map

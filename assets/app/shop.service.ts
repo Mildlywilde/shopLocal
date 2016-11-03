@@ -11,6 +11,11 @@ export class ShopService {
       .map(response => response.json())
   }
 
+  getShop(id) {
+    return this.http.get('/shop/' + id)
+      .map(response => response.json())
+  }
+
   // createShop(){
   //   this.http.post('/shop')
   // }

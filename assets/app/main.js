@@ -24,7 +24,7 @@ let AppModule = class AppModule {
 AppModule = __decorate([
     core_1.NgModule({
         declarations: [app_component_1.AppComponent, dashboard_component_1.DashboardComponent, shops_component_1.ShopsComponent, shop_detail_component_1.ShopDetailComponent],
-        imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule, router_1.RouterModule.forRoot([{ path: 'shops', component: shops_component_1.ShopsComponent }, { path: 'dashboard', component: dashboard_component_1.DashboardComponent }, { path: '', redirectTo: '/dashboard', pathMatch: 'full' }])],
+        imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule, router_1.RouterModule.forRoot([{ path: 'shops', component: shops_component_1.ShopsComponent }, { path: 'dashboard', component: dashboard_component_1.DashboardComponent }, { path: '', redirectTo: '/dashboard', pathMatch: 'full' }, { path: 'detail/:id', component: shop_detail_component_1.ShopDetailComponent }])],
         bootstrap: [app_component_1.AppComponent],
         providers: [shop_service_1.ShopService]
     }),

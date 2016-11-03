@@ -12,7 +12,7 @@ import { DashboardComponent} from './dashboard.component';
 
 @NgModule({
     declarations: [AppComponent, DashboardComponent, ShopsComponent, ShopDetailComponent],
-    imports:      [BrowserModule, HttpModule, FormsModule, RouterModule.forRoot([{ path: 'shops', component: ShopsComponent }, { path: 'dashboard', component: DashboardComponent }, { path: '', redirectTo: '/dashboard', pathMatch: 'full'}])],
+    imports:      [BrowserModule, HttpModule, FormsModule, RouterModule.forRoot([{ path: 'shops', component: ShopsComponent }, { path: 'dashboard', component: DashboardComponent }, { path: '', redirectTo: '/dashboard', pathMatch: 'full'}, { path: 'detail/:id', component: ShopDetailComponent }])],
     bootstrap:    [AppComponent],
     providers:    [ShopService]
 })

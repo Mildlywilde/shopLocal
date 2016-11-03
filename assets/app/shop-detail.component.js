@@ -9,28 +9,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require("@angular/core");
-const shop_1 = require("./shop");
+const router_1 = require("@angular/router");
+const common_1 = require("@angular/common");
+const shop_service_1 = require("./shop.service");
 let ShopDetailComponent = class ShopDetailComponent {
+    constructor(shopService, route, location) {
+        this.shopService = shopService;
+        this.route = route;
+        this.location = location;
+    }
+    ngOnInit() {
+        this.route.params.forEach((params) => {
+            let id = +params['id'];
+            this.shopService.getShop(id)
+                .subscribe(shop => this.shop = shop, error => console.error('Error:' + err), () => console.log('Completed!'));
+        });
+    }
+    goBack() {
+        this.location.back();
+    }
 };
 __decorate([
     core_1.Input(),
-    __metadata("design:type", shop_1.Shop)
+    __metadata("design:type", Object)
 ], ShopDetailComponent.prototype, "shop", void 0);
 ShopDetailComponent = __decorate([
     core_1.Component({
+        moduleId: module.id,
         selector: 'my-shop-detail',
-        template: `
-            <div *ngIf="shop">
-              <h2>{{shop.name}} details!</h2>
-              <div>
-                <label>name: </label>
-                <input [(ngModel)]="shop.name" placeholder="name"/>
-                <div><label>postcode: </label>{{shop.postcode}}</div>
-              </div>
-            </div>
-            `
+        templateUrl: 'shop-detail.component.html'
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [shop_service_1.ShopService,
+        router_1.ActivatedRoute,
+        common_1.Location])
 ], ShopDetailComponent);
 exports.ShopDetailComponent = ShopDetailComponent;
 //# sourceMappingURL=shop-detail.component.js.map

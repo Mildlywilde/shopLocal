@@ -19,6 +19,10 @@ let ShopService = class ShopService {
         return this.http.get('/shop')
             .map(response => response.json());
     }
+    getShop(id) {
+        return this.http.get('/shop/' + id)
+            .map(response => response.json());
+    }
 };
 ShopService = __decorate([
     core_1.Injectable(),

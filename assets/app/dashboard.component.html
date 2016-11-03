@@ -1,0 +1,8 @@
+<h3>Shops near you</h3>
+<div class="grid grid-pad">
+  <div *ngFor="let shop of shops" (click)="gotoDetail(shop)" class="col-1-4">
+    <div class="module shop">
+      <h4>{{shop.name}}</h4>
+    </div>
+  </div>
+</div>
