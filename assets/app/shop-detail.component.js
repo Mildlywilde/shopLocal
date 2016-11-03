@@ -28,6 +28,11 @@ let ShopDetailComponent = class ShopDetailComponent {
     goBack() {
         this.location.back();
     }
+    save() {
+        this.shopService.updateShop(this.shop)
+            .subscribe(() => shop, error => console.error('Error'), () => console.log('Completed'));
+        // .then(() => this.goBack() );
+    }
 };
 __decorate([
     core_1.Input(),

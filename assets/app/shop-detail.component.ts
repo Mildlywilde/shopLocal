@@ -33,6 +33,16 @@ export class ShopDetailComponent implements OnInit {
     this.location.back();
   }
 
+  save(): void {
+    this.shopService.updateShop(this.shop)
+      .subscribe(
+        () => shop,
+        error => console.error('Error'),
+        () => console.log('Completed')
+      );
+      // .then(() => this.goBack() );
+  }
+
   @Input()
   shop: Shop;
 }

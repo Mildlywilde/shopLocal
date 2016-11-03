@@ -11,16 +11,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 const core_1 = require("@angular/core");
 const http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
+require("rxjs/add/operator/toPromise");
 let ShopService = class ShopService {
     constructor(http) {
         this.http = http;
+        this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+    }
+    handleError(error) {
+        console.error('An error occurred', error); // for demo purposes only
+        return Promise.reject(error.message || error);
     }
     getShops() {
         return this.http.get('/shop')
             .map(response => response.json());
     }
     getShop(id) {
-        return this.http.get('/shop/' + id)
+        return this.http.get(`/shop/${id}`)
+            .map(response => response.json());
+    }
+    updateShop(shop) {
+        return this.http.put(`/shop/${shop.id}`, JSON.stringify(shop), { headers: this.headers })
             .map(response => response.json());
     }
 };
