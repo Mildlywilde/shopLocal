@@ -31,7 +31,8 @@ export class ShopService {
       .map(response => response.json())
   }
 
-  // createShop(){
-  //   this.http.post('/shop')
-  // }
+  createShop(name, postcode){
+    return this.http.post('/shop', {name: name, postcode: postcode}, {headers: this.headers})
+      .map(response => response.json())
+  }
 }

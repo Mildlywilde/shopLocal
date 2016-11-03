@@ -33,6 +33,10 @@ let ShopService = class ShopService {
         return this.http.put(`/shop/${shop.id}`, { name: shop.name, postcode: shop.postcode }, { headers: this.headers })
             .map(response => response.json());
     }
+    createShop(name, postcode) {
+        return this.http.post('/shop', { name: name, postcode: postcode }, { headers: this.headers })
+            .map(response => response.json());
+    }
 };
 ShopService = __decorate([
     core_1.Injectable(),

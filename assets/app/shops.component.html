@@ -1,6 +1,9 @@
 <h2>SHOPS!</h2>
 <div>
+  <h3>New Shop</h3>
   <label>Shop Name: </label><input #shopName />
+  <label>Postcode: </label><input #shopPostcode />
+  <button (click)="add(shopName.value, shopPostcode.value); shopName.value=''; shopPostcode.value=''">Add</button>
 </div>
 <ul class="shops">
   <li *ngFor="let shop of shops"

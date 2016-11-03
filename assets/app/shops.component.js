@@ -19,13 +19,23 @@ let ShopsComponent = class ShopsComponent {
     }
     ngOnInit() {
         this.shopService.getShops()
-            .subscribe(shops => this.shops = shops, error => console.error('Error:' + err), () => console.log('Completed!'));
+            .subscribe(shops => this.shops = shops, error => console.error('Error:' + error), () => console.log('Completed!'));
     }
     onSelect(shop) {
         this.selectedShop = shop;
     }
     gotoDetail() {
         this.router.navigate(['/detail', this.selectedShop.id]);
+    }
+    add(name, postcode) {
+        name = name.trim();
+        postcode = postcode.trim();
+        // if (!name || !postcode) { return; }
+        this.shopService.createShop(name, postcode)
+            .subscribe(shop => {
+            this.shops.push(shop);
+            this.selectedShop = null;
+        }, error => console.error('Error:'), () => console.log('Completed'));
     }
 };
 ShopsComponent = __decorate([

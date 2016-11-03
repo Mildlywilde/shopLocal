@@ -25,7 +25,7 @@ export class ShopsComponent implements OnInit {
     this.shopService.getShops()
         .subscribe(
         shops => this.shops = shops,
-        error => console.error('Error:' + err),
+        error => console.error('Error:' + error),
         () => console.log('Completed!')
       );
   }
@@ -36,5 +36,21 @@ export class ShopsComponent implements OnInit {
 
   gotoDetail(): void {
     this.router.navigate(['/detail', this.selectedShop.id])
+  }
+
+  add(name: string, postcode: string): void {
+    name = name.trim()
+    postcode = postcode.trim()
+    // if (!name || !postcode) { return; }
+    this.shopService.createShop(name, postcode)
+        .subscribe(
+        shop => {
+          this.shops.push(shop);
+          this.selectedShop = null;
+        },
+        error => console.error('Error:'),
+        () => console.log('Completed')
+
+      );
   }
 }
