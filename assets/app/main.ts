@@ -9,10 +9,11 @@ import { ShopsComponent}  from './shops.component';
 import {ShopDetailComponent} from './shop-detail.component';
 import { ShopService}     from './shop.service';
 import { DashboardComponent} from './dashboard.component';
+import { AppRoutingModule } from './app-routing.module'
 
 @NgModule({
     declarations: [AppComponent, DashboardComponent, ShopsComponent, ShopDetailComponent],
-    imports:      [BrowserModule, HttpModule, FormsModule, RouterModule.forRoot([{ path: 'shops', component: ShopsComponent }, { path: 'dashboard', component: DashboardComponent }, { path: '', redirectTo: '/dashboard', pathMatch: 'full'}, { path: 'detail/:id', component: ShopDetailComponent }])],
+    imports:      [BrowserModule, HttpModule, FormsModule, AppRoutingModule ],
     bootstrap:    [AppComponent],
     providers:    [ShopService]
 })
