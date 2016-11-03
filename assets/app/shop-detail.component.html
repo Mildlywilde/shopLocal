@@ -3,7 +3,9 @@
   <div>
     <label>name: </label>
     <input [(ngModel)]="shop.name" placeholder="name"/>
-    <div><label>postcode: </label>{{shop.postcode}}</div>
+    <div><label>postcode: </label>
+    <input [(ngModel)]="shop.postcode" placeholder="XXXXXX">
+  </div>
   </div>
   <button (click)="save()">Save</button>
   <button (click)="goBack()">Back</button>

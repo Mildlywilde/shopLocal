@@ -31,7 +31,9 @@ let ShopService = class ShopService {
     }
     updateShop(shop) {
         return this.http.put(`/shop/${shop.id}`, JSON.stringify(shop), { headers: this.headers })
-            .map(response => response.json());
+            .toPromise()
+            .then(() => shop)
+            .catch(this.handleError);
     }
 };
 ShopService = __decorate([

@@ -35,12 +35,12 @@ export class ShopDetailComponent implements OnInit {
 
   save(): void {
     this.shopService.updateShop(this.shop)
-      .subscribe(
-        () => shop,
-        error => console.error('Error'),
-        () => console.log('Completed')
-      );
-      // .then(() => this.goBack() );
+      // .subscribe(
+      //   () => shop,
+      //   error => console.error('Error'),
+      //   () => console.log('Completed')
+      // );
+      .then(() => this.goBack() );
   }
 
   @Input()

@@ -30,8 +30,7 @@ let ShopDetailComponent = class ShopDetailComponent {
     }
     save() {
         this.shopService.updateShop(this.shop)
-            .subscribe(() => shop, error => console.error('Error'), () => console.log('Completed'));
-        // .then(() => this.goBack() );
+            .then(() => this.goBack());
     }
 };
 __decorate([

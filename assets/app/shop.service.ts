@@ -3,6 +3,8 @@ import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
+import { Shop } from './shop';
+
 @Injectable()
 export class ShopService {
   constructor(private http:Http) {}
@@ -24,9 +26,11 @@ export class ShopService {
       .map(response => response.json())
   }
 
-  updateShop(shop) {
+  updateShop(shop: Shop): Promise<Shop> {
     return this.http.put(`/shop/${shop.id}`, JSON.stringify(shop), { headers: this.headers })
-      .map(response => response.json());
+      .toPromise()
+      .then(() => shop )
+      .catch(this.handleError)
   }
 
   // createShop(){
