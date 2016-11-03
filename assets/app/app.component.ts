@@ -1,14 +1,17 @@
 import {Component} from '@angular/core';
 import {Shop}      from './shop';
-const SHOPS: Shop[] = [
-  {id: 1, name: 'Meeple Mart'},
-  {id: 2, name: 'Snakes & Lattes'},
-  {id: 3, name: '401 Games'}
-]
+import {ShopService} from './shop.service'
+
+// const SHOPS: Shop[] = [
+//   {id: 1, name: 'Meeple Mart'},
+//   {id: 2, name: 'Snakes & Lattes'},
+//   {id: 3, name: '401 Games'}
+// ]
 
 
 @Component({
     selector: 'my-app',
+    providers: [ShopService],
     template: `
               <h1>{{title}}</h1>
               <h2>SHOPS!</h2>
@@ -75,7 +78,15 @@ const SHOPS: Shop[] = [
 })
 export class AppComponent {
   title = 'Shop Local';
-  shops = SHOPS;
+  constructor(shopService: ShopService) {
+    shopService.getShops()
+        .subscribe(
+        shops => this.shops = shops,
+        error => console.error('Error:' + err),
+        () => console.log('Completed!')
+      );
+  }
+  // shops = SHOPS;
   selectedShop: Shop
 
   onSelect(shop: Shop): void {

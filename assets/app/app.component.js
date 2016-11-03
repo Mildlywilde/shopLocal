@@ -9,15 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require("@angular/core");
-const SHOPS = [
-    { id: 1, name: 'Meeple Mart' },
-    { id: 2, name: 'Snakes & Lattes' },
-    { id: 3, name: '401 Games' }
-];
+const shop_service_1 = require("./shop.service");
+// const SHOPS: Shop[] = [
+//   {id: 1, name: 'Meeple Mart'},
+//   {id: 2, name: 'Snakes & Lattes'},
+//   {id: 3, name: '401 Games'}
+// ]
 let AppComponent = class AppComponent {
-    constructor() {
+    constructor(shopService) {
         this.title = 'Shop Local';
-        this.shops = SHOPS;
+        shopService.getShops()
+            .subscribe(shops => this.shops = shops, error => console.error('Error:' + err), () => console.log('Completed!'));
     }
     onSelect(shop) {
         this.selectedShop = shop;
@@ -26,6 +28,7 @@ let AppComponent = class AppComponent {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
+        providers: [shop_service_1.ShopService],
         template: `
               <h1>{{title}}</h1>
               <h2>SHOPS!</h2>
@@ -88,7 +91,7 @@ AppComponent = __decorate([
       }
     `]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [shop_service_1.ShopService])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map
