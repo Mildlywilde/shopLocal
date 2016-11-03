@@ -10,4 +10,6 @@ export class ShopService {
     return this.http.get('/shop')
       .map(response => response.json())
   }
+
+  
 }

@@ -7,10 +7,10 @@ import {Shop}             from './shop';
   template: `
             <div *ngIf="shop">
               <h2>{{shop.name}} details!</h2>
-              <div><label>id: </label>{{shop.id}}</div>
               <div>
                 <label>name: </label>
                 <input [(ngModel)]="shop.name" placeholder="name"/>
+                <div><label>postcode: </label>{{shop.postcode}}</div>
               </div>
             </div>
             `
