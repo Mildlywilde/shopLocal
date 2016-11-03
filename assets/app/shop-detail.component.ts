@@ -34,13 +34,13 @@ export class ShopDetailComponent implements OnInit {
   }
 
   save(): void {
+    var back = this.goBack()
     this.shopService.updateShop(this.shop)
-      // .subscribe(
-      //   () => shop,
-      //   error => console.error('Error'),
-      //   () => console.log('Completed')
-      // );
-      .then(() => this.goBack() );
+      .subscribe(
+        () => shop,
+        error => console.log('Error'),
+        () => back,
+      )
   }
 
   @Input()

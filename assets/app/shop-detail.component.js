@@ -29,8 +29,9 @@ let ShopDetailComponent = class ShopDetailComponent {
         this.location.back();
     }
     save() {
+        var back = this.goBack();
         this.shopService.updateShop(this.shop)
-            .then(() => this.goBack());
+            .subscribe(() => shop, error => console.log('Error'), () => back);
     }
 };
 __decorate([

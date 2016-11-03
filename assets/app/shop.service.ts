@@ -26,11 +26,9 @@ export class ShopService {
       .map(response => response.json())
   }
 
-  updateShop(shop: Shop): Promise<Shop> {
-    return this.http.put(`/shop/${shop.id}`, JSON.stringify(shop), { headers: this.headers })
-      .toPromise()
-      .then(() => shop )
-      .catch(this.handleError)
+  updateShop(shop: Shop) {
+    return this.http.put(`/shop/${shop.id}`, {name: shop.name, postcode: shop.postcode}, { headers: this.headers })
+      .map(response => response.json())
   }
 
   // createShop(){
