@@ -9,23 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require("@angular/core");
-let AppComponent = class AppComponent {
-    constructor() {
-        this.title = 'Shop Local';
-    }
+let DashboardComponent = class DashboardComponent {
 };
-AppComponent = __decorate([
+DashboardComponent = __decorate([
     core_1.Component({
-        selector: 'my-app',
+        selector: 'my-dashboard',
         template: `
-            <h1>{{title}}</h1>
-            <nav>
-              <a routerLink="/dashboard">Dashboard</a>
-              <a routerLink="/shops">Shops</a>
-            <router-outlet></router-outlet>
+            <h3>Dash</h3>
             `
     }),
     __metadata("design:paramtypes", [])
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+], DashboardComponent);
+exports.DashboardComponent = DashboardComponent;
+//# sourceMappingURL=dashboard.component.js.map

@@ -11,5 +11,7 @@ export class ShopService {
       .map(response => response.json())
   }
 
-  
+  // createShop(){
+  //   this.http.post('/shop')
+  // }
 }
