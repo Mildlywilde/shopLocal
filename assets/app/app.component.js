@@ -16,14 +16,16 @@ let AppComponent = class AppComponent {
 };
 AppComponent = __decorate([
     core_1.Component({
+        moduleId: module.id,
         selector: 'my-app',
         template: `
             <h1>{{title}}</h1>
             <nav>
-              <a routerLink="/dashboard">Dashboard</a>
-              <a routerLink="/shops">Shops</a>
+              <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+              <a routerLink="/shops" routerLinkActive="active">Shops</a>
             <router-outlet></router-outlet>
-            `
+            `,
+        styleUrls: ['app.component.css']
     }),
     __metadata("design:paramtypes", [])
 ], AppComponent);

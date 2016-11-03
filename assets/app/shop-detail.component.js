@@ -37,7 +37,8 @@ ShopDetailComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'my-shop-detail',
-        templateUrl: 'shop-detail.component.html'
+        templateUrl: 'shop-detail.component.html',
+        styleUrls: ['shop-detail.component.css']
     }),
     __metadata("design:paramtypes", [shop_service_1.ShopService,
         router_1.ActivatedRoute,

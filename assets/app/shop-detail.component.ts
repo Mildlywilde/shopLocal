@@ -7,7 +7,8 @@ import {ShopService}              from './shop.service';
 @Component({
   moduleId: module.id,
   selector: 'my-shop-detail',
-  templateUrl: 'shop-detail.component.html'
+  templateUrl: 'shop-detail.component.html',
+  styleUrls: [ 'shop-detail.component.css' ]
 })
 export class ShopDetailComponent implements OnInit {
   constructor(
